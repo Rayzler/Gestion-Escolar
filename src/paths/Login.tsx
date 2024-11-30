@@ -6,10 +6,10 @@ import {useLocation} from "wouter";
 
 const formSchema = z.object({
     email: z.string().email({
-        message: "Please enter a valid email address."
+        message: "Ingrese un correo electrónico válido."
     }),
     password: z.string().min(8, {
-        message: "Password must be at least 8 characters long."
+        message: "La contraseña debe tener al menos 8 caracteres."
     })
 });
 
@@ -41,17 +41,17 @@ export default function LoginView() {
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsLoading(true);
         setError(null);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 200));
 
         if (values.email !== adminUser.email || values.password !== adminUser.password) {
-            setError("Invalid email or password.");
+            setError("Email o contraseña incorrectos.");
             setIsLoading(false);
             return;
         }
 
         localStorage.setItem("isAuthenticated", "true");
         setIsLoading(false);
-        navigate("/students");
+        navigate("/");
     }
 
     return (
@@ -59,14 +59,14 @@ export default function LoginView() {
             <div className="max-w-md w-full space-y-8">
                 <div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
-                        Sign in to your account
+                        Inicia sesión
                     </h2>
                 </div>
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)} onChange={() => setError(null)}>
                     <div className="rounded-md shadow-sm -space-y-px">
                         <div>
                             <label htmlFor="email" className="sr-only">
-                                Email address
+                                Email
                             </label>
                             <input
                                 id="email"
@@ -83,7 +83,7 @@ export default function LoginView() {
                         </div>
                         <div>
                             <label htmlFor="password" className="sr-only">
-                                Password
+                                Contraseña
                             </label>
                             <input
                                 id="password"
@@ -105,7 +105,7 @@ export default function LoginView() {
                             <div className="flex">
                                 <div className="ml-3">
                                     <h3 className="text-sm font-medium text-red-300">
-                                        There was an error with your submission
+                                        Ocurrió un error al iniciar sesión
                                     </h3>
                                     <div className="mt-2 text-sm text-red-200">
                                         <p>{error}</p>
@@ -117,6 +117,7 @@ export default function LoginView() {
 
                     <div>
                         <button
+                            id="login"
                             type="submit"
                             disabled={isLoading}
                             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -130,7 +131,7 @@ export default function LoginView() {
                                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             ) : (
-                                "Sign in"
+                                "Iniciar sesión"
                             )}
                         </button>
                     </div>

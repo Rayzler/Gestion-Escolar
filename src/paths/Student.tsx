@@ -40,6 +40,7 @@ export default function StudentView() {
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-2xl font-bold text-white">Materias</h2>
                         <button
+                            id="attach-subject"
                             onClick={() => setIsModalOpen(true)}
                             className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors"
                             disabled={availableSubjects.length === 0}

@@ -14,6 +14,7 @@ export function SubjectList({subjects, handleEdit, handleDelete}: SubjectListPro
                 <Card
                     key={subject.id}
                     title={subject.nombre}
+                    idSubject={subject.id}
                     onEdit={() => handleEdit(subject.id)}
                     onDelete={() => handleDelete(subject.id)}
                 />
