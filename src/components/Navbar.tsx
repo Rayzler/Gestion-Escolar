@@ -5,7 +5,7 @@ export function Navbar() {
 
     function handleLogout() {
         localStorage.removeItem("isAuthenticated");
-        navigate("/");
+        navigate("/login");
     }
 
     return (
@@ -13,13 +13,14 @@ export function Navbar() {
             <div className="container mx-auto flex justify-between items-center">
                 <Link to="/" className="text-white text-2xl font-bold">Panel Escolar</Link>
                 <div className="space-x-4">
-                    <Link to="/students" className="text-white hover:text-indigo-400">
+                    <Link id="students" to="/students" className="text-white hover:text-indigo-400">
                         Estudiantes
                     </Link>
-                    <Link to="/subjects" className="text-white hover:text-indigo-400">
+                    <Link id="subjects" to="/subjects" className="text-white hover:text-indigo-400">
                         Materias
                     </Link>
                     <button
+                        id="logout"
                         onClick={handleLogout}
                         className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors"
                     >

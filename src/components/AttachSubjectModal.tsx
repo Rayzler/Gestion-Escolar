@@ -51,6 +51,7 @@ export function AttachSubjectModal({isOpen, onClose, onAttach, availableSubjects
                         Cancelar
                     </button>
                     <button
+                        id="save-attach"
                         onClick={handleAttach}
                         disabled={selectedSubject === ""}
                         className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"

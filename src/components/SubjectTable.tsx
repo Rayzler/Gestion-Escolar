@@ -39,7 +39,7 @@ export function SubjectTable({idStudent}: SubjectTableProps) {
 
     return (
         <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800 text-white">
+            <table className="min-w-full bg-gray-800 text-white" id="subjects-table">
                 <thead>
                 <tr className="bg-gray-700">
                     <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider">Materia</th>
@@ -49,7 +49,7 @@ export function SubjectTable({idStudent}: SubjectTableProps) {
                 </thead>
                 <tbody>
                 {studentGrades.map((grade) => (
-                    <tr key={grade.id} className="bg-gray-800 hover:bg-gray-700/50">
+                    <tr key={grade.id} className="bg-gray-800 hover:bg-gray-700/50" id={`row-${grade.id}`}>
                         <td className="px-6 py-4 text-center whitespace-nowrap">{grade.materia.nombre}</td>
                         <td className="px-6 py-4 text-center whitespace-nowrap">
                             <input
@@ -68,21 +68,21 @@ export function SubjectTable({idStudent}: SubjectTableProps) {
                             {editingSubject === grade.id ? (
                                 <button
                                     onClick={() => handleSaveClick(grade.id)}
-                                    className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition-colors"
+                                    className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition-colors save-button"
                                 >
                                     Guardar
                                 </button>
                             ) : (
                                 <button
                                     onClick={() => handleEditClick(grade)}
-                                    className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors"
+                                    className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors edit-button"
                                 >
                                     Editar
                                 </button>
                             )}
                             <button
                                 onClick={() => deleteGrade(grade.id)}
-                                className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition-colors"
+                                className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition-colors delete-button"
                             >
                                 Eliminar
                             </button>

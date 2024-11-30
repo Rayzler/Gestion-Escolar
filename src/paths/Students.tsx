@@ -51,6 +51,7 @@ export default function StudentsView() {
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-white text-2xl font-bold">Estudiantes</h2>
                         <button
+                            id="add-student"
                             onClick={handleCreate}
                             className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors"
                         >
