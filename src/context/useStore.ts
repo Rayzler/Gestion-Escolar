@@ -77,9 +77,12 @@ export const useStore = create(persist<StoreProps>((set) => ({
     editSubject: (id, subject) => set(state => ({
         subjects: state.subjects.map(s => s.id === id ? subject : s)
     })),
-    deleteSubject: (id) => set(state => ({
-        subjects: state.subjects.filter(s => s.id !== id)
-    })),
+    deleteSubject: (id) => set(state => {
+        return {
+            subjects: state.subjects.filter(s => s.id !== id),
+            grades: state.grades.filter(g => g.materia.id !== id)
+        };
+    }),
     nextGradeId: 1,
     grades: [],
     addGrade: (idStudent, idSubject) => set(state => {
