@@ -34,7 +34,7 @@ export default function LoginView() {
     useEffect(() => {
         const isAuthenticated = localStorage.getItem("isAuthenticated");
         if (isAuthenticated === "true") {
-            navigate("/students");
+            navigate("/");
         }
     }, [navigate]);
 
