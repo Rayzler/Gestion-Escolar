@@ -11,7 +11,7 @@ export function Navbar() {
     return (
         <nav className="bg-gray-800 p-4">
             <div className="container mx-auto flex justify-between items-center">
-                <p className="text-white text-2xl font-bold">Panel Escolar</p>
+                <Link to="/" className="text-white text-2xl font-bold">Panel Escolar</Link>
                 <div className="space-x-4">
                     <Link to="/students" className="text-white hover:text-indigo-400">
                         Estudiantes
